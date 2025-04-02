@@ -1,0 +1,86 @@
+
+/* Improve font scaling */
+body {
+    font-size: clamp(14px, 2vw, 18px);
+}
+
+/* Contact form adjustments */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+}
+
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+.project {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensuring Flexbox handles layout dynamically */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Portfolio section restructuring */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .grid {
+        display: block; /* Stack projects for a cleaner mobile layout */
+    }
+    form {
+        width: 100%; /* Ensure the contact form fits smaller screens */
+    }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Two-column layout for portfolio */
+    }
+}
+
+/* Desktop screens */
+@media (min-width: 1025px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
